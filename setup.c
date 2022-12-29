@@ -3,8 +3,8 @@
 static inline void init_interrupts();
 static inline void init_timer();
 
-void setup(){
-	
+void setup()
+{
 	// read(PORTB, BUTTON);
 	// init_interrupts();
 	init_timer();
@@ -14,15 +14,15 @@ void setup(){
 	return;
 }
 
-static inline void init_interrupts(){
-	
+static inline void init_interrupts()
+{
 	PCICR |= (1<<PCIE0);
 	PCMSK0 |= (1<<BUTTON);
 	return;
 }
 
-static inline void init_timer(){
-	
+static inline void init_timer()
+{
 	TCCR0B = (1 << CS01);
 	TIMSK0 = (1 << TOIE0);
 	
